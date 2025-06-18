@@ -1,0 +1,582 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+    /* Dunkleres Farbschema */
+    --bg-color: #0b0b0b;
+    --text-color: #e0e0e0;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --link-color: #00b0ff;
+    --accent: #00b0ff;
+}
+
+body.light-mode {
+    --bg-color: #f0f0f0;
+    --text-color: #222;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --link-color: #007bb6;
+    --accent: #007bb6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem; /* Gleiches horizontales Padding wie die .projects Sektion */
+}
+
+/* Header & Navigation */
+header {
+    background-color: rgba(11, 11, 11, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center; /* Zentriert den Inhalt des Headers */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Nav wird durch .container in der Breite begrenzt */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    opacity: 0.8;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+    opacity: 1;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.mobile-menu-btn:hover {
+    opacity: 1;
+}
+
+/* Hero Section */
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 0; /* Vertikales Padding, horizontales durch .container */
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px; /* Begrenzung für den Hero-Textinhalt */
+    margin: 0 auto;
+}
+
+.hero-subtitle {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.hero-description {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    /* max-width und auto-margins hier entfernt, da .hero-content es bereits steuert */
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #111;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 176, 255, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    margin-left: 15px;
+}
+
+.btn-outline:hover {
+    background: rgba(0, 176, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 176, 255, 0.1);
+}
+
+/* Projects Section */
+section {
+    padding: 70px 0; /* Reduziert von 100px auf 70px für weniger Abstand */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    color: var(--text-color);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.filter-buttons button {
+    padding: 0.7rem 1.4rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.filter-buttons button.active {
+    background-color: var(--accent);
+    color: #111;
+    box-shadow: 0 2px 10px rgba(0, 176, 255, 0.3);
+}
+
+.filter-buttons button:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 1.2rem;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 6px 25px var(--card-shadow);
+    /* Für Hover-Effekt: Content flex-box zur Steuerung der Höhenverteilung */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 2rem;
+    display: flex; /* Flexbox für Inhalt, damit Details korrekt geschoben werden */
+    flex-direction: column;
+    flex-grow: 1; /* Nimmt verfügbaren Platz ein */
+}
+
+.project-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+}
+
+.short-description { /* Kurze Beschreibung, immer sichtbar */
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.full-details { /* Ausgeklappte Details beim Hover */
+    opacity: 0;
+    max-height: 0; /* Anfangs versteckt */
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease, padding 0.4s ease, border-top 0.4s ease, margin-top 0.4s ease;
+    padding-top: 0; /* Standardmäßig kein Padding */
+    border-top: none; /* Standardmäßig kein Border */
+    margin-top: 0;
+    flex-grow: 0;
+}
+
+.project-card:hover .full-details {
+    opacity: 1;
+    max-height: 500px; /* Muss groß genug sein, um den Inhalt zu zeigen */
+    padding-top: 15px; /* Padding oben beim Ausklappen */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Trennlinie */
+    margin-top: 1rem; /* Abstand zur kurzen Beschreibung */
+    flex-grow: 1;
+}
+
+.long-description { /* Detailliertere Beschreibung im ausgeklappten Zustand */
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px; /* Abstand zu den Links */
+    margin-top: 0; /* Reset, da es jetzt im full-details ist */
+}
+
+.tech-tag {
+    background: rgba(0, 176, 255, 0.1);
+    color: var(--accent);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: auto; /* Push links to bottom */
+}
+
+.project-link {
+    color: var(--accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.project-link:hover {
+    color: #4dc3ff;
+    transform: translateX(5px);
+}
+
+/* Contact Section */
+#contact {
+    background: var(--card-bg);
+    border-radius: 20px;
+    margin: 50px auto; /* Zentrieren und Abstand oben/unten */
+    padding: 50px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 6px 25px var(--card-shadow);
+    max-width: 1000px; /* Eine feste maximale Breite für die Kontaktsektion */
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.contact-text {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--bg-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-link {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    opacity: 0.8;
+}
+
+.social-link:hover {
+    color: var(--accent);
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0.8;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* Reduziertes Padding für Sektionen auf kleineren Bildschirmen */
+    section {
+        padding: 50px 0; /* Weiter reduziert für kleinere Bildschirme */
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-outline {
+        margin-left: 0;
+    }
+
+    #contact {
+        padding: 30px;
+        margin: 30px auto;
+    }
+
+    .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 100px 0; /* Noch weiter reduziert für sehr kleine Bildschirme */
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    #contact {
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }

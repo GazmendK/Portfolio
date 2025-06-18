@@ -1,10 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasmen Kamberi | Softwareentwickler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-$END$
+<button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+</button>
+
+
+
+<button class="mobile-menu-btn">
+    <i class="fas fa-bars"></i>
+</button>
+<section id="home">
+    <div class="container">
+        <div class="hero-content">
+            <p class="hero-subtitle fade-in">Hallo, ich bin</p>
+            <h1 class="hero-title fade-in delay-1">Gasmen Kamberi</h1>
+            <h2 class="hero-subtitle fade-in delay-1">Informatikstudent & Entwickler</h2>
+            <p class="hero-description fade-in delay-2">
+                Als leidenschaftlicher Informatikstudent und angehender Entwickler widme ich mich der Gestaltung und Implementierung von Software, die nicht nur technisch fundiert, sondern auch intuitiv und benutzerfreundlich ist. Mein Fokus liegt darauf, komplexe Herausforderungen in elegante und effiziente Lösungen zu überführen, stets unter Berücksichtigung moderner Technologien und Best Practices für sauberen Code. Ich bin stets auf der Suche nach neuen Lernmöglichkeiten und spannenden Projekten, die meine Fähigkeiten erweitern und einen positiven Einfluss haben.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">Meine Projekte</h2>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Alle</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="mobile">Mobile</button>
+            <button class="filter-btn" data-filter="python">Python</button>
+            <button class="filter-btn" data-filter="java">Java</button>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card" data-category="web">
+                <div class="project-content">
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="short-description">Eine moderne Portfolio-Website mit responsive Design und Filterfunktion für Projekte.</p>
+                    <div class="full-details">
+                        <p class="long-description">Diese Website wurde von Grund auf neu entwickelt, um meine Fähigkeiten in HTML, CSS und JavaScript zu demonstrieren. Sie verfügt über einen interaktiven Projektfilter und ein responsives Design, das auf allen Geräten eine optimale Darstellung gewährleistet. Besondere Merkmale sind der Dunkel-/Hellmodus und flüssige Animationen.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/GazmendK/Portfolio" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="mobile java">
+                <div class="project-content">
+                    <h3 class="project-title">Fitness Tracker App</h3>
+                    <p class="short-description">Eine Android-App zur Verfolgung von Trainingseinheiten und Fortschritten mit Statistiken.</p>
+                    <div class="full-details">
+                        <p class="long-description">Mobile Anwendung für Android zur Erfassung und Visualisierung von Fitnessdaten. Sie bietet umfassende Funktionen wie die Protokollierung von Workouts, die Überwachung des Fortschritts, die Erstellung individueller Trainingspläne und das einfache Nährwert-Tracking per Barcode-Scan.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/GazmendK/FitTracker" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="java web">
+                <div class="project-content">
+                    <h3 class="project-title">ExamByte: Online-Prüfungssystem</h3>
+                    <p class="short-description">Ein webbasiertes Prüfungssystem zur Durchführung und Verwaltung von Tests im universitären Umfeld.</p>
+                    <div class="full-details">
+                        <p class="long-description">Webanwendung zur Verwaltung von universitären Tests und Klausurzulassungen. Kernfunktionen sind eine rollenbasierte Benutzerverwaltung (via GitHub), verschiedene Fragetypen (MC, Freitext) sowie Workflows für die manuelle Korrektur und eine automatisierte Ergebnisanzeige.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring</span>
+                            <span class="tech-tag">Onion Architecture</span>
+                            <span class="tech-tag">GitHub OAuth</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card" data-category="python">
+                <div class="project-content">
+                    <h3 class="project-title">Datenanalyse Tool</h3>
+                    <p class="short-description">Ein Python-Skript zur Analyse und Visualisierung von Daten mit verschiedenen Algorithmen.</p>
+                    <div class="full-details">
+                        <p class="long-description">Entwicklung eines Python-basierten Tools zur Automatisierung von Datenanalyse-Workflows. Ermöglicht das Importieren, Bereinigen, Transformieren und Visualisieren großer Datensätze. Nutzt Pandas für die Datenmanipulation und Matplotlib für die Erstellung interaktiver Diagramme.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Kontakt</h2>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Lass uns in Kontakt treten</h3>
+                <p class="contact-text">
+                    Ich bin offen für neue Möglichkeiten und Zusammenarbeiten.
+                    Zögere nicht, mich zu kontaktieren - ich antworte so schnell wie möglich.
+                </p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span>gasmen80@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span>+49 17663330853</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>Düsseldorf, Deutschland</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="865412f2-467e-4064-98ac-551622feb96b">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Betreff</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Nachricht senden</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="social-links">
+            <a href="https://github.com/GazmendK" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/gasmenkamberi/" class="social-link"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2025 Gasmen Kamberi. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
