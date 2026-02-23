@@ -13,7 +13,7 @@ body {
 }
 
 :root {
-    /* Dunkleres Farbschema */
+    
     --bg-color: #0b0b0b;
     --text-color: #e0e0e0;
     --card-bg: rgba(255, 255, 255, 0.03);
@@ -35,10 +35,10 @@ body.light-mode {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2.5rem; /* Gleiches horizontales Padding wie die .projects Sektion */
+    padding: 0 2.5rem; 
 }
 
-/* Header & Navigation */
+
 header {
     background-color: rgba(11, 11, 11, 0.8);
     backdrop-filter: blur(10px);
@@ -47,14 +47,14 @@ header {
     z-index: 100;
     padding: 15px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center; /* Zentriert den Inhalt des Headers */
+    text-align: center; 
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Nav wird durch .container in der Breite begrenzt */
+    
 }
 
 .logo {
@@ -100,17 +100,17 @@ nav {
     opacity: 1;
 }
 
-/* Hero Section */
+
 #home {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 100px 0; /* Vertikales Padding, horizontales durch .container */
+    padding: 100px 0; 
     text-align: center;
 }
 
 .hero-content {
-    max-width: 800px; /* Begrenzung für den Hero-Textinhalt */
+    max-width: 800px; 
     margin: 0 auto;
 }
 
@@ -134,7 +134,7 @@ nav {
     opacity: 0.8;
     font-size: 1.1rem;
     margin-bottom: 30px;
-    /* max-width und auto-margins hier entfernt, da .hero-content es bereits steuert */
+    
     line-height: 1.8;
 }
 
@@ -166,9 +166,9 @@ nav {
     box-shadow: 0 10px 20px rgba(0, 176, 255, 0.1);
 }
 
-/* Projects Section */
+
 section {
-    padding: 70px 0; /* Reduziert von 100px auf 70px für weniger Abstand */
+    padding: 70px 0; 
 }
 
 .section-title {
@@ -236,7 +236,7 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
     box-shadow: 0 6px 25px var(--card-shadow);
-    /* Für Hover-Effekt: Content flex-box zur Steuerung der Höhenverteilung */
+    
     display: flex;
     flex-direction: column;
 }
@@ -254,9 +254,9 @@ section {
 
 .project-content {
     padding: 2rem;
-    display: flex; /* Flexbox für Inhalt, damit Details korrekt geschoben werden */
+    display: flex; 
     flex-direction: column;
-    flex-grow: 1; /* Nimmt verfügbaren Platz ein */
+    flex-grow: 1; 
 }
 
 .project-title {
@@ -265,33 +265,33 @@ section {
     color: var(--text-color);
 }
 
-.short-description { /* Kurze Beschreibung, immer sichtbar */
+.short-description { 
     color: var(--text-color);
     opacity: 0.9;
     margin-bottom: 1rem;
 }
 
-.full-details { /* Ausgeklappte Details beim Hover */
+.full-details { 
     opacity: 0;
-    max-height: 0; /* Anfangs versteckt */
+    max-height: 0; 
     overflow: hidden;
     transition: opacity 0.4s ease, max-height 0.4s ease, padding 0.4s ease, border-top 0.4s ease, margin-top 0.4s ease;
-    padding-top: 0; /* Standardmäßig kein Padding */
-    border-top: none; /* Standardmäßig kein Border */
+    padding-top: 0; 
+    border-top: none; 
     margin-top: 0;
     flex-grow: 0;
 }
 
 .project-card:hover .full-details {
     opacity: 1;
-    max-height: 500px; /* Muss groß genug sein, um den Inhalt zu zeigen */
-    padding-top: 15px; /* Padding oben beim Ausklappen */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Trennlinie */
-    margin-top: 1rem; /* Abstand zur kurzen Beschreibung */
+    max-height: 500px; 
+    padding-top: 15px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    margin-top: 1rem; 
     flex-grow: 1;
 }
 
-.long-description { /* Detailliertere Beschreibung im ausgeklappten Zustand */
+.long-description { 
     color: var(--text-color);
     opacity: 0.8;
     margin-bottom: 1rem;
@@ -301,8 +301,8 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px; /* Abstand zu den Links */
-    margin-top: 0; /* Reset, da es jetzt im full-details ist */
+    margin-bottom: 20px; 
+    margin-top: 0; 
 }
 
 .tech-tag {
@@ -316,7 +316,7 @@ section {
 .project-links {
     display: flex;
     gap: 15px;
-    margin-top: auto; /* Push links to bottom */
+    margin-top: auto; 
 }
 
 .project-link {
@@ -334,15 +334,15 @@ section {
     transform: translateX(5px);
 }
 
-/* Contact Section */
+
 #contact {
     background: var(--card-bg);
     border-radius: 20px;
-    margin: 50px auto; /* Zentrieren und Abstand oben/unten */
+    margin: 50px auto; 
     padding: 50px;
     backdrop-filter: blur(15px);
     box-shadow: 0 6px 25px var(--card-shadow);
-    max-width: 1000px; /* Eine feste maximale Breite für die Kontaktsektion */
+    max-width: 1000px; 
 }
 
 .contact-container {
@@ -415,7 +415,7 @@ section {
     resize: vertical;
 }
 
-/* Footer */
+
 footer {
     text-align: center;
     padding: 30px 0;
@@ -445,7 +445,7 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Theme Toggle */
+
 .theme-toggle {
     position: fixed;
     top: 1.5rem;
@@ -473,7 +473,7 @@ footer {
     opacity: 1;
 }
 
-/* Responsive Design */
+
 @media (max-width: 992px) {
     .contact-container {
         grid-template-columns: 1fr;
@@ -485,9 +485,9 @@ footer {
         padding: 0 1.5rem;
     }
 
-    /* Reduziertes Padding für Sektionen auf kleineren Bildschirmen */
+    
     section {
-        padding: 50px 0; /* Weiter reduziert für kleinere Bildschirme */
+        padding: 50px 0; 
     }
 
     .nav-links {
@@ -546,7 +546,7 @@ footer {
     }
 
     section {
-        padding: 100px 0; /* Noch weiter reduziert für sehr kleine Bildschirme */
+        padding: 100px 0; 
     }
 
     .project-content {
@@ -567,7 +567,7 @@ footer {
     }
 }
 
-/* Animations */
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }

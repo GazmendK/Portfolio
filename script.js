@@ -1,13 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const icon = themeToggle.querySelector('i');
 
-    // Check for saved theme preference or use preferred color scheme
     const savedTheme = localStorage.getItem('theme') ||
         (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 
-    // Apply the saved theme
     if (savedTheme === 'light') {
         document.body.classList.add('light-mode');
         icon.classList.replace('fa-moon', 'fa-sun');
@@ -25,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mobile Menu Toggle
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
@@ -36,12 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
             : '<i class="fas fa-bars"></i>';
     });
 
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
 
-            // Close mobile menu if open
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
@@ -53,13 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Project filtering
-    const filterButtons = document.querySelectorAll('.filter-buttons button'); // Select all buttons within filter-buttons
+    const filterButtons = document.querySelectorAll('.filter-buttons button');
     const projectCards = document.querySelectorAll('.project-card');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
@@ -89,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             const json = JSON.stringify(object);
 
-            // Erstellen einer Referenz zum Senden-Button, um den Text zu ändern
             const submitButton = contactForm.querySelector('button[type="submit"]');
             submitButton.innerHTML = "Sende...";
             submitButton.disabled = true;
@@ -105,24 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(async (response) => {
                     let jsonResponse = await response.json();
                     if (response.status == 200) {
-                        // Erfolgsmeldung
                         submitButton.innerHTML = "Erfolgreich gesendet!";
-                        contactForm.reset(); // Formular leeren
+                        contactForm.reset();
                     } else {
-                        // Fehlermeldung
                         console.log(response);
                         submitButton.innerHTML = `Fehler: ${jsonResponse.message}`;
                         submitButton.style.backgroundColor = '#d9534f';
                     }
                 })
                 .catch(error => {
-                    // Netzwerkfehler
                     console.log(error);
                     submitButton.innerHTML = "Fehler beim Senden!";
                     submitButton.style.backgroundColor = '#d9534f';
                 })
                 .finally(() => {
-                    // Nach ein paar Sekunden den Button-Zustand zurücksetzen
                     setTimeout(() => {
                         submitButton.innerHTML = "Nachricht senden";
                         submitButton.disabled = false;
