@@ -153,4 +153,45 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1200);
     }
 
+    (function() {
+        // Lightbox elemente
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('.lightbox-image');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+
+        // Alle Bilder mit der Klasse 'lightbox-trigger' auswählen
+        const triggers = document.querySelectorAll('.lightbox-trigger');
+
+        // Klick auf ein Trigger-Bild
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault(); // Falls das Bild in einem Link steckt
+                const imgSrc = trigger.getAttribute('src');
+                lightboxImg.setAttribute('src', imgSrc);
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Lightbox schließen
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            lightboxImg.setAttribute('src', ''); // Quelle zurücksetzen (optional)
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+
+        // Klick auf den Hintergrund (Overlay) schließt ebenfalls
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // ESC-Taste zum Schließen
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    })();
 });
