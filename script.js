@@ -110,28 +110,29 @@ document.addEventListener('DOMContentLoaded', function () {
         contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
+            // FormData direkt verwenden (nicht in JSON umwandeln)
             const formData = new FormData(contactForm);
-            const json = JSON.stringify(Object.fromEntries(formData));
 
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird gesendet…';
             submitBtn.disabled = true;
 
             try {
-                const res  = await fetch('https://api.web3forms.com/submit', {
+                const res = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: json
+                    body: formData  // FormData direkt senden, nicht JSON
                 });
+
                 const data = await res.json();
 
-                if (res.status === 200) {
+                if (res.ok && data.success) {
                     submitBtn.innerHTML = '<i class="fas fa-check"></i> Erfolgreich gesendet!';
                     submitBtn.style.background = '#22c55e';
                     contactForm.reset();
                 } else {
-                    throw new Error(data.message || 'Unbekannter Fehler');
+                    throw new Error(data.message || 'Fehler beim Senden');
                 }
             } catch (err) {
+                console.error('Fehler:', err);
                 submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Fehler beim Senden';
                 submitBtn.style.background = '#ef4444';
             } finally {
